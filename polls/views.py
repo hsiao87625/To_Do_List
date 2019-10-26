@@ -3,14 +3,19 @@ from . import models
 
 # 建立一個任務的列表
 def home(request):
-    return render(request, 'base.html')
+    missions = models.Mission.objects.all()
+    return render(request, 'polls/new_mission.html', {'missions':missions})
 
 def new_mission(request):
     mission = request.POST.get('mission')
-    print(mission)
     models.Mission.objects.create(mission=mission)
-
+    missions = models.Mission.objects.all()
     mission_list = {
-        'mission':mission,
+        'missions':missions,
         }
     return render(request, 'polls/new_mission.html', mission_list)
+
+def delete_mission(request, mission):
+    models.Mission.objects.get(mission=mission).delete()
+    missions = models.Mission.objects.all()
+    return render(request, 'polls/new_mission.html', {'missions':missions})
