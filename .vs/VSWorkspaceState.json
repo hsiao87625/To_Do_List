@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\polls",
-    "\\templates"
+    "\\polls"
   ],
-  "SelectedNode": "\\templates\\polls",
+  "SelectedNode": "\\polls\\views.py",
   "PreviewInSolutionExplorer": false
 }

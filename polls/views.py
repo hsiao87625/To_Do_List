@@ -8,14 +8,17 @@ def home(request):
 
 def new_mission(request):
     mission = request.POST.get('mission')
-    models.Mission.objects.create(mission=mission)
+    try:
+        models.Mission.objects.get(mission=mission)
+    except:
+        models.Mission.objects.create(mission=mission)       
     missions = models.Mission.objects.all()
     mission_list = {
         'missions':missions,
         }
     return render(request, 'polls/new_mission.html', mission_list)
 
-def delete_mission(request, mission):
-    models.Mission.objects.get(mission=mission).delete()
+def delete_mission(request, mission_id):
+    models.Mission.objects.get(id=mission_id).delete()
     missions = models.Mission.objects.all()
     return render(request, 'polls/new_mission.html', {'missions':missions})

@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <nav class="navbar nvabar-dark bg-dark">
-        <div class="container ">
-            <a href="/">To Do List</a>
-            <a href="/" class="right">Home</a>
+    <nav class="navbar nvabar-dark bg-dark mb-2" style="height:80px">
+        <div class="container">
+            <a href="/"><h3>To Do List</h3></a>
+            <a href="/"><h3>Home</h3></a>
         </div>
     </nav>
 
@@ -21,10 +21,11 @@
     <div class="container">
         <form action="{% url 'new_mission' %}" method="post">
             {% csrf_token %}
-            <input type="text" name="mission" placeholder="mission" style="width:800px">
-            <button class="btn btn-primary right" type="submit" name="action">Join</button>
+            <input class="form-control" type="text" name="mission" placeholder="mission">
+            <button class="btn btn-primary btn-lg" type="submit" name="action">Join</button>
         </form>
-
+    </div>
+    <div class="container">
         {% block content %}
 
         {% endblock content %}

@@ -5,15 +5,15 @@
         <div class="col">
             <ul class="list-group">
                 {% for mission in missions %}
-                <li class="list-group-item">{{mission}}
+                <li class="list-group-item mt-mb-4">{{mission}}
                     <div class="float-right">
-                        <form action="{{mission}}">
+                        <form action="{{mission.id}}">
                         <button class="btn btn-danger">Delete</button>
                         </form>
                     </div>
                 </li>
+                 {% endfor %}
             </ul>
-        {% endfor %}
         </div>
     </div>
 {% endblock content %}
